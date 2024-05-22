@@ -38,7 +38,7 @@ app.use(cookieParser());
 
 // Configure CORS
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://liptom-games.vercel.app.com'],
+    origin: ['http://localhost:3000', 'https://invoice-manager-ketsi.vercel.app/'],
     methods: 'GET,PUT,POST,DELETE',
     credentials: true, // Enable credentials (cookies, authorization headers, etc.)
   };

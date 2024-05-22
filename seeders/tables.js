@@ -1,15 +1,19 @@
 const { Sequelize, DataTypes } = require('sequelize');
 require('dotenv').config();
 
-const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
-
-//TODO: please update this to access the credential form the .env file
-// const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
-  const sequelize = new Sequelize('leptonGames', 'postgres', 'yes123', {
-    host: DB_HOST,
-    dialect: 'postgres',
-    logging: false, // Set to true for debugging
+// Use the DATABASE_URL from environment variables for production
+const sequelize = new Sequelize('postgres://default:eGzkQbDH2ha4@ep-calm-mode-a4oityx9-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require', {
+  dialect: 'postgres',
+  protocol: 'postgres',
+  dialectModule: require('pg'),
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // Adjust based on your SSL configuration
+    },
+  },
 });
+
 
 const bcryptjs = require('bcryptjs');
 const User = require('../models/userModel')(sequelize, DataTypes);
