@@ -29,12 +29,6 @@ sequelize
         console.error('Unable to connect to the database:', error);
     });
 
-app.use(morgan('dev'));
-app.use(bodyParser.json({ limit: "25mb" }));
-app.use(bodyParser.urlencoded({
-    limit: "25mb", extended: true
-}));
-app.use(cookieParser());
 
 // Configure CORS
 const corsOptions = {
@@ -56,11 +50,17 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Credentials', 'true');
     next();
   });
-  
+
+app.use(morgan('dev'));
+app.use(bodyParser.json({ limit: "25mb" }));
+app.use(bodyParser.urlencoded({
+    limit: "25mb", extended: true
+}));
+app.use(cookieParser());
 app.use(errorHandler);
 
 app.get("/", (req, res) => {
-    res.send("Welcome to `Lepton Games`!");
+    res.send("Welcome to `Lepton Games`! Thisis Invoice Management App.");
 });
 app.use('/api/auth', authRoute);
 app.use('/api/user', userRoute);
