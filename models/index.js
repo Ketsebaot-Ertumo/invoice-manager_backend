@@ -16,6 +16,7 @@ if (process.env.POSTGRES_URL) {
   sequelize = new Sequelize(process.env.POSTGRES_URL, {
     dialect: 'postgres',
     protocol: 'postgres',
+    dialectModule: require('pg'),
     dialectOptions: {
       ssl: {
         require: true,
