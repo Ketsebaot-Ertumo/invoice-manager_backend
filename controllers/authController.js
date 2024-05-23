@@ -165,8 +165,7 @@ exports.forgot = async (req, res, next) => {
         const token = await user.getJwtToken();
         res
           .status(codeStatus)
-          .cookie('token', token, {maxAge: 8 * 60 * 60 * 1000, secure: false})
-          // .cookie('token', token, {maxAge: 8 * 60 * 60 * 1000, httpOnly: true, secure: true})
+          .cookie('token', token, {maxAge: 8 * 60 * 60 * 1000, httpOnly: true})
             .json({
                 success: true,
                 id: user.id,
