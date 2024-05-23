@@ -140,18 +140,22 @@ exports.forgot = async (req, res, next) => {
         try {
           const decoded = jwt.verify(resetToken, process.env.JWT_SECRET);
           const user = await User.findOne({ where: { resetToken }});
+
           if (!user) {
             return res.status(401).json({success: false, message: 'User not found' });
           }
+
           const isMatched = await user.comparePassword(newPassword);
+
           if(isMatched){
               return res.status(401).json({success: false,message: "Please enter a new password." });
           }
-            user.password = await bcryptjs.hash(newPassword, 10);
-            user.resetToken = "Reseted";
-            await user.save();
-            await sendConfResetEmail(user.email, user.fullName);
-            res.status(200).json({ success: true, message: 'Password reset successfully!'});
+          
+          user.password = await bcryptjs.hash(newPassword, 10);
+          user.resetToken = "Reseted";
+          await user.save();
+          await sendConfResetEmail(user.email, user.fullName);
+          res.status(200).json({ success: true, message: 'Password reset successfully!'});
           } catch (error) {
             console.log(err)
             return res.status(500).json({success: false,message:'Server Error, please Reset password again!', error: error.message });
