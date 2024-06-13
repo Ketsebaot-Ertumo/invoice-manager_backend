@@ -12,11 +12,11 @@ const transporter = nodemailer.createTransport({
 
 exports.sendFormWithEmail = async (email, formData) => {
     const mailOptions = {
-        from: '"TechEthio Group" <process.env.USER_1>',
+        from: '"Lepton Games" <process.env.USER_1>',
         to: email,
-        subject: 'Welcome to TechEthio',
-        text: `Hello Dear Admin,<br><br>Please find form data below from TechEthio website.<br><br>Form Data:<br>${formData}<br><br>Thanks,<br>TechEthio Group.`,
-        html: `<p>Hello Dear,<br><br>Please find form data below from TechEthio website.<br><br>Form Data:<br>${formData}<br><br>Thanks,<br>TechEthio Group.</p>`,
+        subject: 'Welcome to Lepton Games',
+        text: `Hello Dear Admin,<br><br>Please find form data below from Lepton Games.<br><br>Form Data:<br>${formData}<br><br>Thanks,<br>Lepton Games.`,
+        html: `<p>Hello Dear,<br><br>Please find form data below from Lepton Games.<br><br>Form Data:<br>${formData}<br><br>Thanks,<br>Lepton Games.</p>`,
     };
     try {
         const info = await transporter.sendMail(mailOptions);
@@ -32,13 +32,13 @@ exports.sendFormWithEmail = async (email, formData) => {
 
 exports.sendConfirmation = async (email, confirmationCode, fullName) => {
     const mailOptions = {
-        from: '"TechEthio Group" <process.env.USER_1>',
+        from: '"Lepton Games" <process.env.USER_1>',
         to: email,
         subject: 'Account Confirmation',
         text: `Hey ${fullName},<br><br>A sign in attempt requires further verification because we did not recognize your device. To complete the sign in, enter the verification code on the unrecognized device.
-      <br><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Verification code:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style="font-size: 32px;"><b>${confirmationCode}</b></span>.<br><br>Thanks,<br>TechEthio Team`,
+      <br><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Verification code:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style="font-size: 32px;"><b>${confirmationCode}</b></span>.<br><br>Thanks,<br>Lepton Games`,
         html: `Hey ${fullName},<br><br>A sign in attempt requires further verification because we did not recognize your device. To complete the sign in, enter the verification code on the unrecognized device.
-      <br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Verification code:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style="font-size: 32px;"><b>${confirmationCode}</b></span>.<br><br>Thanks,<br>TechEthio Group.`,
+      <br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Verification code:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style="font-size: 32px;"><b>${confirmationCode}</b></span>.<br><br>Thanks,<br>Lepton Games.`,
     };
 
     try {
@@ -55,11 +55,11 @@ exports.sendConfirmation = async (email, confirmationCode, fullName) => {
 
 exports.sendWelcomeEmail = async (email, fullName, userType) => {
     const mailOptions = {
-        from: '"TechEthio Group" <process.env.USER_1>',
+        from: '"Lepton Games" <process.env.USER_1>',
         to: email,
-        subject: 'Welcome to TechEthio',
-        text: `Hello ${fullName},\n\nYou’ve just registered and are set to begin as a ${userType}.\n\nThanks,\nTechEthio Team`,
-        html: `Welcome to our website ${fullName},<br><br>You have just registered and are set to begin as a ${userType}.<br><br>Thanks,<br>TechEthio Group.`,
+        subject: 'Welcome to Lepton Games',
+        text: `Hello ${fullName},\n\nYou’ve just registered and are set to begin as a ${userType}.\n\nThanks,\nLepton Games`,
+        html: `Welcome to our website ${fullName},<br><br>You have just registered and are set to begin as a ${userType}.<br><br>Thanks,<br>Lepton Games.`,
     };
 
     await transporter.sendMail(mailOptions);
@@ -68,15 +68,15 @@ exports.sendWelcomeEmail = async (email, fullName, userType) => {
 
 exports.sendPasswordResetEmail = async (email, resetLink1, resetLink2, fullName) => {
     const mailOptions = {
-        from: '"TechEthio Group" <process.env.USER_1>',
+        from: '"Lepton Games" <process.env.USER_1>',
         to: email,
         subject: 'Password Reset',
         text: `<p>Hey ${fullName},<br><br>Please click the following link to reset your password:
-      <br><br>&emsp;&emsp;&emsp;&emsp;&emsp;Password Reset link:<br>&emsp;&emsp;&emsp;&emsp;&emsp;<span style="font-size: 32px;"><b>${resetLink1}<b></span><br>${resetLink2}.<br><br>Thanks,<br>TechEthio Group.</p>`,
+      <br><br>&emsp;&emsp;&emsp;&emsp;&emsp;Password Reset link:<br>&emsp;&emsp;&emsp;&emsp;&emsp;<span style="font-size: 32px;"><b>${resetLink1}<b></span><br>${resetLink2}.<br><br>Thanks,<br>Lepton Games.</p>`,
         html: `<p>Hey ${fullName},
       <br><br>&emsp;&emsp;&emsp;&emsp;&emsp;Please click the following link to reset your password.<br><br>&emsp;&emsp;Password Reset link: <br>&emsp;&emsp;
       <span style="font-size: 15px;"><b>${resetLink1}<b></span><br>&emsp;&emsp;<span style="font-size: 15px;"><b>${resetLink2}.
-      <br><br>Thanks,<br>TechEthio Group.</p>`,
+      <br><br>Thanks,<br>Lepton Games.</p>`,
     };
 
     try {
@@ -92,13 +92,13 @@ exports.sendPasswordResetEmail = async (email, resetLink1, resetLink2, fullName)
 
 exports.sendConfResetEmail = async (email, fullName) => {
     const mailOptions = {
-        from: '"TechEthio Group" <process.env.USER_1>',
+        from: '"Lepton Games" <process.env.USER_1>',
         to: email,
         subject: 'Your Account was recovered successfully',
         text: `Welcome back to your account ${fullName},<br><br>If you suspect you were locked out of your account because of changes made by someone else, you should review and protect your account.
-      <br><br>Thanks,<br>TechEthio Group.`,
+      <br><br>Thanks,<br>Lepton Games.`,
         html: `<p>Welcome back to your account ${fullName},<br><br>If you suspect you were locked out of your account because of changes made by someone else, you should review and protect your account.
-      <br><br>Thanks,<br>TechEthio Group.</p>`,
+      <br><br>Thanks,<br>Lepton Games.</p>`,
     };
 
     await transporter.sendMail(mailOptions);
@@ -107,13 +107,13 @@ exports.sendConfResetEmail = async (email, fullName) => {
 
 exports.shareWithEmail = async (email, pdfBuffer, fileName) => {
     const mailOptions = {
-        from: '"TechEthio Group" <process.env.USER_1>',
+        from: '"Lepton Games" <process.env.USER_1>',
         to: email,
         subject: 'File attachment',
         text: `Hello Dear,<br><br>Please find the attached file.
-      <br><br>Thanks,<br>TechEthio Group.`,
+      <br><br>Thanks,<br>Lepton Games.`,
         html: `<p>Hello Dear,<br><br>Please find the attached PDF.
-      <br><br>Thanks,<br>TechEthio Group.</p>`,
+      <br><br>Thanks,<br>Lepton Games.</p>`,
         attachments: [
             {
                 filename: fileName,
