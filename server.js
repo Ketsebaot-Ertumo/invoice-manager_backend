@@ -13,6 +13,7 @@ app.use(express.json());
 const authRoute = require('./routes/authRoute');
 const userRoute = require('./routes/userRoute');
 const invoiceRoute = require('./routes/invoiceRoute');
+const formRoute = require('./routes/formRoute');
 
 
 const PORT = process.env.PORT || process.env.DB_PORT;
@@ -65,3 +66,4 @@ app.get("/", (req, res) => {
 app.use('/api/auth', authRoute);
 app.use('/api/user', userRoute);
 app.use('/api/invoice', invoiceRoute);
+app.use('/api/', formRoute);

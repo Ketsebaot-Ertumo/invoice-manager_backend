@@ -107,13 +107,13 @@ exports.sendConfResetEmail = async (email, fullName) => {
 
 exports.shareWithEmail = async (email, pdfBuffer, fileName) => {
     const mailOptions = {
-        from: '"Lepton Games" <process.env.USER_1>',
-        to: email,
+        from: `${email} <process.env.USER_1>`,
+        to: process.env.email,
         subject: 'File attachment',
         text: `Hello Dear,<br><br>Please find the attached file.
-      <br><br>Thanks,<br>Lepton Games.`,
+      <br><br>Thanks,<br>${email}.`,
         html: `<p>Hello Dear,<br><br>Please find the attached PDF.
-      <br><br>Thanks,<br>Lepton Games.</p>`,
+      <br><br>Thanks,<br>${email}.</p>`,
         attachments: [
             {
                 filename: fileName,
